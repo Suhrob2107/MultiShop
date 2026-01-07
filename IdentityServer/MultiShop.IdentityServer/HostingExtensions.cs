@@ -1,4 +1,4 @@
-using Duende.IdentityServer;
+﻿using Duende.IdentityServer;
 using MultiShop.IdentityServer.Data;
 using MultiShop.IdentityServer.Models;
 using Microsoft.AspNetCore.Identity;
@@ -11,7 +11,9 @@ internal static class HostingExtensions
 {
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
-        builder.Services.AddRazorPages();
+        builder.Services.AddLocalApiAuthentication(); // Local API kimlik doğrulamasını ekle
+
+        builder.Services.AddRazorPages(); // Razor Pages desteğini ekle
 
         builder.Services.AddControllers();
 
@@ -66,6 +68,7 @@ internal static class HostingExtensions
         app.UseStaticFiles();
         app.UseRouting();
         app.UseIdentityServer();
+        app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
 

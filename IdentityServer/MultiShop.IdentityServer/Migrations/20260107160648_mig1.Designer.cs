@@ -12,7 +12,7 @@ using MultiShop.IdentityServer.Data;
 namespace MultiShop.IdentityServer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260105144606_mig1")]
+    [Migration("20260107160648_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
